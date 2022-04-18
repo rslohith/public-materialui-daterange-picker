@@ -1,6 +1,6 @@
 {
 	"name": "@gallus/materialui-daterange-picker",
-	"version": "1.1.93",
+	"version": "1.1.94-zachawilson-sc-119253-upgrade-mui-in-gallus-manager-search.0",
 	"description": "A react date range picker implementation using @material-ui.",
 	"author": "Gallus Golf LLC",
 	"license": "MIT",
@@ -18,7 +18,7 @@
 	},
 	"peerDependencies": {
 		"@emotion/react": "^11.8.2",
-    	"@emotion/styled": "^11.8.1",
+		"@emotion/styled": "^11.8.1",
 		"@mui/icons-material": "^5.6.0",
 		"@mui/material": "^5.5.2",
 		"@mui/styles": "^5.6.0",
@@ -47,7 +47,7 @@
 		"@babel/preset-env": "^7.0.0",
 		"@babel/preset-react": "^7.0.0",
 		"@emotion/react": "^11.8.2",
-    	"@emotion/styled": "^11.8.1",
+		"@emotion/styled": "^11.8.1",
 		"@mui/icons-material": "^5.6.0",
 		"@mui/material": "^5.5.2",
 		"@mui/styles": "^5.6.0",
