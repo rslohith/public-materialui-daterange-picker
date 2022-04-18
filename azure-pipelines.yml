@@ -1,0 +1,35 @@
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+# https://aka.ms/yaml
+parameters:
+  - name: skip_audit
+    displayName: 'Skip the audit step?'
+    type: boolean
+    default: false
+
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      endpoint: switchcase-build
+      name: SwitchCaseGroup/switchcase-azure-pipelines-templates
+      ref: refs/heads/master
+    - repository: self
+      clean: true
+
+# https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml#pr-triggers
+pr:
+  autoCancel: true
+  branches:
+    include:
+    - master      
+
+jobs:
+  - template: jobs/build_yarn.yml@templates
+    parameters:
+      nodeVersionSpec: '12.x'
+  - ${{ if eq(parameters.skip_audit, false) }}:
+    - template: jobs/audit_yarn.yml@templates
+  - template: jobs/publish_yarn.yml@templates
+    parameters:
+      nodeVersionSpec: '12.x'
+      customRegistry: useNpmrc

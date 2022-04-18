@@ -1,10 +1,9 @@
 {
-	"name": "materialui-daterange-picker",
+	"name": "@gallus/materialui-daterange-picker",
 	"version": "1.1.93",
 	"description": "A react date range picker implementation using @material-ui.",
-	"author": "jungsoft",
+	"author": "Gallus Golf LLC",
 	"license": "MIT",
-	"repository": "jungsoft/materialui-daterange-picker",
 	"main": "dist/index.js",
 	"module": "dist/index.es.js",
 	"jsnext:main": "dist/index.es.js",
@@ -15,8 +14,7 @@
 	"scripts": {
 		"lint": "./node_modules/.bin/eslint ./src --ext .js,.jsx,.ts,.tsx",
 		"build": "rollup -c",
-		"copy_publish_files": "cp ../README.md .",
-		"prepublish": "yarn run build && yarn run copy_publish_files"
+		"test": "echo \"No tests available\""
 	},
 	"peerDependencies": {
 		"@emotion/react": "^11.8.2",
