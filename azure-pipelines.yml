@@ -24,11 +24,8 @@ jobs:
   - template: jobs/build_yarn.yml@templates
     parameters:
       nodeVersionSpec: '14.x'
-      # sourceFolder: $(System.DefaultWorkingDirectory)/umd
-      env:
-        NPM_AUTH_IDENT_SWITCHCASE: $(NPM_AUTH_IDENT_SWITCHCASE)
   - template: jobs/audit_yarn.yml@templates
-  - template: jobs/publish_yarn2.yml@templates
+  - template: jobs/publish_yarn.yml@templates
     parameters:
       nodeVersionSpec: '14.x'
-      npmAuthIdentSwitchCase: $(NPM_AUTH_IDENT_SWITCHCASE)
+      customRegistry: useNpmrc
