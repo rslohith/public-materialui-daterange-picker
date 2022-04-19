@@ -1,11 +1,5 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 # https://aka.ms/yaml
-parameters:
-  - name: skip_audit
-    displayName: 'Skip the audit step?'
-    type: boolean
-    default: false
-
 resources:
   repositories:
     - repository: templates
@@ -21,15 +15,20 @@ pr:
   autoCancel: true
   branches:
     include:
-    - master      
+    - master
+
+variables:
+  - group: private-npm-registry
 
 jobs:
   - template: jobs/build_yarn.yml@templates
     parameters:
-      nodeVersionSpec: '12.x'
-  - ${{ if eq(parameters.skip_audit, false) }}:
-    - template: jobs/audit_yarn.yml@templates
-  - template: jobs/publish_yarn.yml@templates
+      nodeVersionSpec: '14.x'
+      # sourceFolder: $(System.DefaultWorkingDirectory)/umd
+      env:
+        NPM_AUTH_IDENT_SWITCHCASE: $(NPM_AUTH_IDENT_SWITCHCASE)
+  - template: jobs/audit_yarn.yml@templates
+  - template: jobs/publish_yarn2.yml@templates
     parameters:
-      nodeVersionSpec: '12.x'
-      customRegistry: useNpmrc
+      nodeVersionSpec: '14.x'
+      npmAuthIdentSwitchCase: $(NPM_AUTH_IDENT_SWITCHCASE)
