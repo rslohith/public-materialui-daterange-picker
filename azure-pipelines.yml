@@ -1,0 +1,31 @@
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+# https://aka.ms/yaml
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      endpoint: switchcase-build
+      name: SwitchCaseGroup/switchcase-azure-pipelines-templates
+      ref: refs/heads/master
+    - repository: self
+      clean: true
+
+# https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml#pr-triggers
+pr:
+  autoCancel: true
+  branches:
+    include:
+    - master
+
+variables:
+  - group: private-npm-registry
+
+jobs:
+  - template: jobs/build_yarn.yml@templates
+    parameters:
+      nodeVersionSpec: '14.x'
+  - template: jobs/audit_yarn.yml@templates
+  - template: jobs/publish_yarn.yml@templates
+    parameters:
+      nodeVersionSpec: '14.x'
+      customRegistry: useNpmrc

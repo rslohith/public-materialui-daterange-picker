@@ -1,10 +1,9 @@
 {
-	"name": "materialui-daterange-picker",
-	"version": "1.1.93",
+	"name": "@gallus/materialui-daterange-picker",
+	"version": "1.1.94-zachawilson-sc-119253-upgrade-mui-in-gallus-manager-search.1",
 	"description": "A react date range picker implementation using @material-ui.",
-	"author": "jungsoft",
+	"author": "Gallus Golf LLC",
 	"license": "MIT",
-	"repository": "jungsoft/materialui-daterange-picker",
 	"main": "dist/index.js",
 	"module": "dist/index.es.js",
 	"jsnext:main": "dist/index.es.js",
@@ -15,12 +14,11 @@
 	"scripts": {
 		"lint": "./node_modules/.bin/eslint ./src --ext .js,.jsx,.ts,.tsx",
 		"build": "rollup -c",
-		"copy_publish_files": "cp ../README.md .",
-		"prepublish": "yarn run build && yarn run copy_publish_files"
+		"test": "echo \"No tests available\""
 	},
 	"peerDependencies": {
 		"@emotion/react": "^11.8.2",
-    	"@emotion/styled": "^11.8.1",
+		"@emotion/styled": "^11.8.1",
 		"@mui/icons-material": "^5.6.0",
 		"@mui/material": "^5.5.2",
 		"@mui/styles": "^5.6.0",
@@ -49,7 +47,7 @@
 		"@babel/preset-env": "^7.0.0",
 		"@babel/preset-react": "^7.0.0",
 		"@emotion/react": "^11.8.2",
-    	"@emotion/styled": "^11.8.1",
+		"@emotion/styled": "^11.8.1",
 		"@mui/icons-material": "^5.6.0",
 		"@mui/material": "^5.5.2",
 		"@mui/styles": "^5.6.0",

@@ -6,6 +6,12 @@ A react date range picker implementation using @material-ui.
     <img src='https://img.shields.io/npm/v/materialui-daterange-picker.svg' alt='Latest npm version'>
 </a>
 
+## Fork
+
+We have forked from the [upstream](https://github.com/jungsoft/materialui-daterange-picker) because we depend on Material UI 5 and the upstream has not yet upgraded. We are waiting for the upstream to merge [PR#39](https://github.com/jungsoft/materialui-daterange-picker/pull/39) so we can switch back to using the maintained version.
+
+Changes to build and publish are entirely for internal purposes. We are using our standard CI/CD process to create a private npm artifact `@gallus/materialui-daterange-picker` so that we can consume in our dependent projects as an NPM package.
+
 ## Preview
 
 ![Screenshot](/screenshot.png?raw=true "Screenshot")
